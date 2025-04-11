@@ -14,5 +14,15 @@ public class Main {
         thread2.start();
         thread3.start();
         System.out.println("Call Threads End"); // where do you think will it print ?
+        //Fix Above Problem
+        //by using thread.join()
+        try {
+            thread1.join();
+            thread2.join();
+            thread3.join();
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+        System.out.println("Now All Threads End");
     }
 }
