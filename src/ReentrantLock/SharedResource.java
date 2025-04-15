@@ -4,12 +4,12 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class SharedResource {
     boolean isAvailable;
-    ReentrantLock lock ;
+//    ReentrantLock lock ;
     public SharedResource() {
         isAvailable=false;
-        this.lock=new ReentrantLock();
+//        this.lock=new ReentrantLock();
     }
-    public void producer(){
+    public void producer(ReentrantLock lock ){
         try {
             lock.lock();
             System.out.println("Lock acquired by " + Thread.currentThread().getName());
