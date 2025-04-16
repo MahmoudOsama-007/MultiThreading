@@ -14,7 +14,7 @@ public class ReadWriteLockExample {
         try {
             System.out.println(Thread.currentThread().getName() + " writing: " + value);
             data.add(value);
-            Thread.sleep(500); // Simulate write delay
+            Thread.sleep(5000); // Simulate write delay
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         } finally {
@@ -26,11 +26,12 @@ public class ReadWriteLockExample {
     public void read() {
         readLock.lock();
         try {
-            System.out.println(Thread.currentThread().getName() + " reading: " + data);
-            Thread.sleep(50); // Simulate read delay
+            System.out.println(Thread.currentThread().getName() + " reading...");
+            Thread.sleep(2000); // Simulate read delay
         } catch (InterruptedException e) {
             Thread.currentThread().interrupt();
         } finally {
+            System.out.println(Thread.currentThread().getName() + " Release Read: " + data);
             readLock.unlock();
         }
     }

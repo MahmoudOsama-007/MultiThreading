@@ -10,10 +10,13 @@ public class Main {
                 sharedResource.readLock();
             }
         },"Read2");
-        Thread writeThread = new Thread(sharedResource::writeLock,"ConsumeThread");
+        Thread writeThread = new Thread(sharedResource::writeLock,"write1");
+        Thread writeThread1 = new Thread(sharedResource::writeLock,"write2");
         writeThread.start();
         readThread2.start();
         readThread1.start();
+        writeThread1.start();
+        writeThread1.setPriority(1);
 
 
     }

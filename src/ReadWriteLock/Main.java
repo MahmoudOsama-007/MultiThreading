@@ -16,12 +16,15 @@ public class Main {
             }
         };
 
+
         Thread writerThread = new Thread(writer, "WriterThread");
+        Thread writerThread2 = new Thread(writer, "WriterThread2");
         Thread readerThread1 = new Thread(reader, "ReaderThread-1");
         Thread readerThread2 = new Thread(reader, "ReaderThread-2");
 
         writerThread.start();
         readerThread1.start();
         readerThread2.start();
+        writerThread2.start();
     }
 }
